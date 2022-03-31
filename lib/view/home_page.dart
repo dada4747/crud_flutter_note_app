@@ -144,6 +144,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(16)),
                 color: AppColors.addBottonColor,
                 onPressed: () {
+                  FirebaseAuth.instance.signOut();
                   showModalBottomSheet(
                       context: context,
                       enableDrag: true,

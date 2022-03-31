@@ -42,6 +42,8 @@ dependencies:
   firebase_storage: ^10.2.9
   flutter_slidable: ^1.2.0
   otp_text_field: ^1.1.2
+  fluttertoast: ^8.0.8
+
 
   intl: ^0.17.0
   flutter_otp_text_field: ^1.0.1

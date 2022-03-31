@@ -2,6 +2,7 @@
 // import 'package:crudassignment/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:otp_text_field/otp_field.dart';
 import '../service/auth_service.dart';
 import '../constant/app_colors.dart';
@@ -98,6 +99,13 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                               builder: (context) => HomePage(),
                             ),
                           );
+                        } else {
+                          Fluttertoast.showToast(
+                              msg: 'OTP not verified ',
+                              fontSize: 12.0,
+                              backgroundColor: AppColors.redDelete,
+                              timeInSecForIosWeb: 3,
+                              textColor: AppColors.descColor);
                         }
                       },
                       child: const Text(
