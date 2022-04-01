@@ -116,6 +116,7 @@ class _HomePageState extends State<HomePage> {
                             desc: snapshot.data!.docs[index].data().notes,
                             image: snapshot.data!.docs[index].data().image,
                             time: snapshot.data!.docs[index].data().createdAt,
+                            id: snapshot.data!.docs[index].id,
                           ),
                         ),
                       );
@@ -144,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(16)),
                 color: AppColors.addBottonColor,
                 onPressed: () {
-                  FirebaseAuth.instance.signOut();
+                  // FirebaseAuth.instance.signOut();
                   showModalBottomSheet(
                       context: context,
                       enableDrag: true,

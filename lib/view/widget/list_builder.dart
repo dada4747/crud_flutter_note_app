@@ -11,16 +11,21 @@ class ListBuilder extends StatelessWidget {
       required this.title,
       required this.desc,
       required this.image,
-      required this.time})
+      required this.time,
+      required this.id})
       : super(key: key);
   final String title;
   final String desc;
   final String image;
+  final String id;
   final Timestamp time;
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
+    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
       Container(
+        // margin: EdgeInsets.only(right: 10),
+        height: 80,
+        width: 82,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
@@ -28,7 +33,6 @@ class ListBuilder extends StatelessWidget {
         child: Image.network(
           image,
           fit: BoxFit.fill,
-          // height: 80,
         ),
       ),
       Stack(children: [
@@ -66,6 +70,7 @@ class ListBuilder extends StatelessWidget {
         InkWell(
           onTap: () {
             showModalBottomSheet(
+                isScrollControlled: true,
                 context: context,
                 builder: (context) => AddNoteBottomSheet(
                       noteModel: NoteModel(
@@ -73,14 +78,17 @@ class ListBuilder extends StatelessWidget {
                           title: title,
                           notes: desc,
                           createdAt: time),
+                      id: id,
                     ));
           },
           child: Container(
               width: 40,
               height: 40,
-              margin: const EdgeInsets.only(right: 20, top: 20, left: 235
-                  // left: 200,
-                  ),
+              margin: const EdgeInsets.only(
+                right: 20,
+                top: 20,
+                left: 200,
+              ),
               decoration: const BoxDecoration(
                   shape: BoxShape.circle, color: AppColors.iconBackColor),
               child: Center(
